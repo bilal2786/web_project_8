@@ -8,7 +8,7 @@ import Section from "./Section.js";
 import UserInfo from "./UserInfo.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
-import './pages/index.css';
+import "../pages/index.css";
 
 const defaultConfig = {
     formSelector: ".form",
