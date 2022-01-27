@@ -1,0 +1,12 @@
+.modal__container_type_image {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+ 
+}
+

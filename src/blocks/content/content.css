@@ -1,0 +1,11 @@
+.content {
+  margin: 0 auto;
+}
+
+
+/* mobile */
+@media screen and (max-width: 599px) {
+  .content {
+    max-width: 320px;
+  }
+}

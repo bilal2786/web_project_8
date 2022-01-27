@@ -1,0 +1,27 @@
+.elements__like-button {
+   background-image: url("../../../images/like.svg");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  border:none;
+  align-self: center;
+  margin-right: 21px;
+  height: 20px;
+  width: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.elements__like-button:hover {
+  opacity: .6;
+}
+
+.elements__like-button_active {
+  opacity: 1;
+  background-color: black;
+  background: url('../../../images/like-filled.svg')
+   center no-repeat;
+
+   /* background-image: url('https://code.s3.yandex.net/web-code/dom/heart-filled.svg') center no-repeat; */
+}
