@@ -29,11 +29,15 @@ const placesElements = document.querySelector("#card-template").content;
 
 const formValidators = {}
 
+const addFormValidator = new FormValidator ( defaultConfig , formAddCard);
+const userData = new UserInfo({ name: '.profile__name', job: '.profile__about' });
+
+const editFormValidator = new FormValidator (   defaultConfig , formAddCard);
 // enable validation
 const enableValidation = (defaultConfig) => {
   const formList = Array.from(document.querySelectorAll(defaultConfig.formSelector))
   formList.forEach((formElement) => {
-    const validator = new FormValidator(formElement, defaultConfig)
+    const validator = new FormValidator( defaultConfig , formElement)
     //  get the name of the form
     const formName = formElement.getAttribute('name')
 
@@ -43,10 +47,7 @@ const enableValidation = (defaultConfig) => {
   });
 };
 
-enableValidation();
-const addFormValidator = new FormValidator(defaultConfig, formAddCard);
-const userData = new UserInfo({ name: '.profile__name', job: '.profile__about' });
-
+enableValidation(defaultConfig);
 
 const addNewPlacePopup = document.querySelector(".modal_type_add-card");
 
