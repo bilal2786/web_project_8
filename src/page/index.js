@@ -57,7 +57,7 @@ enableValidation(defaultConfig);
 
 
 function renderCard(data) {
-  const card = new Card(data, placeTemplate, (link, name) =>
+  const card = new Card(data, elementTemplate, (link, name) =>
     //note! => binds "open" to original this._popup rather than to scope (Class "Card")
     previewImage.open(link, name)
   );
@@ -69,10 +69,13 @@ addPlacePopup.setEventListeners();
 
 function submitNewPlaceForm(e) {
   e.preventDefault();
-
+ 
+    const place = document.querySelector(".form__input_type_card-title");
+    const link = document.querySelector(".form__input_type_url");
+   
   const insertPlace = renderCard({
-    name: inputPlace.value,
-    link: inputLink.value,
+    place: place.value,
+    link: link.value,
   });
   elementsList.addItem(insertPlace);
   addPlacePopup.close();
@@ -93,9 +96,10 @@ const cardSection = new Section(
 const profileModal = new PopupWithForm(submitProfileForm, ".modal_type_edit-profile");
 profileModal.setEventListeners();
 
-function submitProfileForm(e) {
-  e.preventDefault();
-
+function submitProfileForm(evt) {
+  evt.preventDefault();
+  const name = document.querySelector(".profile__name");
+  const job = document.querySelector(".profile__about");
   userData.setUserInfo({
     name: name.value,
     job: job.value,
@@ -133,6 +137,7 @@ const aboutInput = document.querySelector(".form__input_type_about");
 const cardImageLinkInput = document.querySelector(".form__input_type_url");
 const cardTitleInput = document.querySelector(".form__input_type_card-title");
 const elementTemplate = document.querySelector("#card-template").content; ///template content
+const placesList = document.querySelector(".elements__items"); //ul of place cards
 
 //cards
 
