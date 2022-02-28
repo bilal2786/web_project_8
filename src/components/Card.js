@@ -1,54 +1,53 @@
-export default class Card {
-  constructor(data, templateSelector, onImageClick) {
-    this._link = data.link;
+import PopupWithImage from "../components/PopupWithImage.js";
+
+class Card {
+  constructor({ data, handleCardClick }, cardSelector) {
     this._name = data.name;
-    this._templateSelector = templateSelector;
-    this._handleCardClick = onImageClick;
+    this._link = data.link;
+    this._handleCardClick = handleCardClick;
+
+    this._cardSelector = cardSelector;
   }
 
-  _getNewCardTemplate() {
-    const cardTemplate = document.querySelector(this._templateSelector).content.querySelector('.card').cloneNode(true);
-    return cardTemplate;
+  _getTemplate() {
+  	this._element = document
+      .querySelector(this._cardSelector)
+      .content
+      .querySelector(".element")
+      .cloneNode(true);
+
+    return this._element;
   }
 
+  
 
-  _handlePicPrev() {
-    this._handleCardClick({link: this._link, name: this._name})
-  }
-
-  _handleLike(evt) {
-    evt.target.classList.toggle('elements__like-button_active');
-
-  }
-
-  _handleDelete(evt) {
-    evt.target.closest(".elements__item").remove();
-
-  }
-
-  _setEventListeners() {
-    this._cardImage = this._card.querySelector('.elements__image')
-    this._cardLikeButton = this._card.querySelector('.elements__like-button')
-    this._cardDeleteButton = this._card.querySelector('.elements__delete-button')
-
-    this._cardImage.addEventListener("click", this._handlePicPrev.bind(this));
-    this._cardLikeButton.addEventListener('click', this._handleLike);
-    this._cardDeleteButton.addEventListener('click', this._handleDelete);
+  _handleLikeButton = ()  => {
+    this._likeButton.classList.toggle("element__like-button_full");
+    
+  };
+  
+  _handleTrashButton = ()  => {
+    this._element.remove();
+    this._element = null; 
   };
 
-
-  render() {
-    this._card = this._getNewCardTemplate();
-    this._card.querySelector(".elements__title").textContent = this._name;
-
-    this._card.querySelector(
-      ".elements__image"
-    ).style.backgroundImage = `url(${this._link})`;
-
-    this._setEventListeners();
-
-    return this._card;
+  _setEventListeners() { 
+    this._likeButton.addEventListener("click", this._handleLikeButton);
+    this._deleteButton.addEventListener("click", this._handleTrashButton);
+    this._cardImage.addEventListener("click", this._handleCardClick);
   }
 
+  getView() {
+    this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector(".element__like-button");
+    this._deleteButton = this._element.querySelector(".element__trash-button");
+    this._cardImage = this._element.querySelector(".element__image");
+    this._element.querySelector(".element__title").textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+       this._setEventListeners();
+    return this._element;
+  }
 }
 
+export default Card;

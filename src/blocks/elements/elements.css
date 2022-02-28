@@ -1,22 +1,25 @@
-@import url('./__description/elements__description.css');
-@import url('./__image/elements__image.css');
-@import url('./__item/elements__item.css');
-@import url('./__items/elements__items.css');
-@import url('./__title/elements__title.css');
-@import url('./__like-button/elements__like-button.css');
-@import url('./__delete-button/elements__delete-button.css');
-
-
-
 .elements {
-  margin-top: 47.25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 880px;
+    gap: 20px 17px;
+    margin: 46.25px 0px 0px;
+    padding: 0px;
 }
 
+@media screen and (max-width: 910px) {
+    .elements {
+        grid-template-columns: 1fr 1fr;
+        max-width: 587px;
+        margin: 46.25px 0px 0px;
+    }
+}
 
-
-
-
-
-
-
-
+@media screen and (max-width: 730px) {
+    .elements {
+        width: 282px;
+        grid-template-columns: 1fr;
+        margin: 36px auto 0px auto;
+    }
+}

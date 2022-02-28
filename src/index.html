@@ -1,95 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yandex Web Project 4">
-    <meta name="keywords" content="Yandex Web Project 4 Around the US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Bilal Safady">
-
     <title>Yandex Web Project 4: Around the US by Bilal Safady</title>
-</head>
-
-<body class="page">
-    <div class="page__container">
-        <header class="header">
-            <img src="../src/images/logo.svg" alt="Around the US" class="header__logo">
-        </header>
-        <main class="content">
-            <section class="profile">
-                <img src="../src/images/jc.jpg" alt="Jacques Cousteau" class="profile__avatar">
-                <div class="profile__info-container">
-                    <div class="profile__title-container">
-                        <h1 class="profile__name">Jacques Cousteau</h1>
-                        <button class="profile__edit-button" aria-label="Edit Button" type="button">
-            </button>
-                    </div>
-                    <p class="profile__about">Explorer</p>
-                </div>
-                <button class="profile__add-button" aria-label="Add Button" type="button">
-        </button>
-            </section>
-            <section class="elements">
-                <ul class="elements__items">
-                </ul>
-            </section>
-        </main>
-        <footer class="footer">
-            <p class="footer__copyright">© 2021 Around The U.S.</p>
-        </footer>
-    </div>
-    <div class="modal modal_type_edit-profile" hidden>
-        <div class="modal__container">
-            <form action="#" class="form form_type_edit-profile" method="post" name="profile">
-                <h3 class="form__title">Edit Profile</h3>
-                <input id="profile-name" type="text" class="form__input form__input_type_name" value="Jacques Cousteau" placeholder="Name" required maxlength="40" minlength="2">
-                <span id="profile-name-error" class="form__error"></span>
-
-                <input id="profile-description" type="text" class="form__input form__input_type_about" value="Explorer" placeholder="About Me" required maxlength="200" minlength="2">
-                <span id="profile-description-error" class="form__error"></span>
-
-                <button type="submit" class="modal__save-button modal__save-button_disabled" disabled>Save</button>
-            </form>
-            <button class="modal__close-button" aria-label="Close Button" type="button"></button>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        
+        alt="logo"
+        class="header__logo"
+      />
+    </header>
+    <main>
+      <section class="profile">
+        <div class="profile__container">
+          <div class="profile__avatar">
+            <img
+              alt="avatar"
+              class="profile__image"
+            />
+          </div>
+          <div class="profile__info">
+            <h2 class="profile__name" id="edit-card-name">Jacques Cousteau</h2>
+            <p class="profile__description" id="edit-card-description">Explorer</p>
+            <button
+              type="button"
+              id="edit-profile-button"
+              class="profile__edit-button"
+            ></button>
+          </div>
         </div>
+        <button
+          type="button"
+          class="profile__add-button"
+          id="add-card-button"
+        ></button>
+      </section>
+      <section class="elements"></section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2021 Around The U.S.</p>
+    </footer>
+    <div class="popup" id="edit-profile-popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button"></button>
+        <h3 class="popup__title">Edit Profile</h3>
+        <form name="form" class="popup__form" id="edit-profile-form">
+          <input
+            id="name-input"
+            name="Name"
+            type="text"
+            placeholder="name"
+            class="popup__input"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span id="name-input-error" class="popup__error-text">Please fill out this field.</span>
+          <input
+            id="description-input"
+            name="Description"
+            type="text"
+            placeholder="Explorer"
+            class="popup__input"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span id="description-input-error" class="popup__error-text">Please fill out this field.</span>
+          <button
+            type="submit"
+            class="popup__submit-button"
+            id="edit-submit-button"
+          >
+            Save
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="modal modal_type_add-card" id="add-card" hidden>
-        <div class="modal__container">
-            <form action="#" class="form form_type_add-card" method="post" name="add card">
-                <h3 class="form__title">New Place</h3>
-                <input id="card-title" type="text" class="form__input form__input_type_card-title" value="" placeholder="Title" required maxlength="30" minlength="2">
-                <span id="card-title-error" class="form__error"></span>
-
-                <input type="url" id="card-url" class="form__input form__input_type_url" value="" placeholder="Image link" required>
-                <span id="card-url-error" class="form__error"></span>
-
-                <button type="submit" aria-label="Create Button" class="modal__save-button modal__save-button_disabled">Create</button>
-            </form>
-            <button class="modal__close-button" aria-label="Close Button" type="button"></button>
-        </div>
+    <div class="popup" id="add-card-popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button"></button>
+        <h3 class="popup__title">New place</h3>
+        <form name="form" class="popup__form" id="new-card-form">
+          <input
+            id="title-input"
+            name="title"
+            type="text"
+            placeholder="Title"
+            class="popup__input"
+            minlength="1"
+            maxlength="30"
+            required
+          />
+          <span id="title-input-error" class="popup__error-text"
+            >Please fill out this field.</span
+          >
+          <input
+            id="link-input"
+            name="link"
+            type="url"
+            placeholder="Image Link"
+            class="popup__input"
+            required
+          />
+          <span id="link-input-error" class="popup__error-text"
+            >Please enter a web address.</span
+          >
+          <button
+            type="submit"
+            class="popup__submit-button"
+            id="add-submit-button"
+          >
+            Create
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="modal modal_type_image" hidden>
-        <div class="modal__container modal__container_type_image">
-            <button class="modal__close-button modal__close-button_type_image" aria-label="Close Button" type="button"></button>
-            <figure class="modal__figure">
-                <img src="#" alt="undifine" class="modal__image">
-                <figcaption class="modal__image-title"></figcaption>
-            </figure>
-        </div>
+    <div class="popup" id="popup-preview">
+      <div class="popup__container popup__container_type_preview">
+        <button type="button" class="popup__close-button"></button>
+        <img class="popup__preview-image" src=" " alt=" " />
+        <p class="popup__caption"></p>
+      </div>
     </div>
     <template id="card-template">
-    <li class="elements__item card">
-      <button class="elements__delete-button" aria-label="Delete Button" type="button"></button>
-      <div class="elements__image"></div>
-      <div class="elements__description">
-        <h2 class="elements__title"></h2>
-        <button class="elements__like-button" aria-label="Like Button" type="button"></button>
-      </div>
-    </li>
-  </template>
-
-
-
-</body>
-
+      <article class="element">
+        <button type="button" class="element__trash-button"></button>
+        <img class="element__image" src=" " alt=" " />
+        <div class="element__card">
+          <h2 class="element__title"></h2>
+          <button type="button" class="element__like-button"></button>
+        </div>
+      </article>
+    </template>
+  </body>
 </html>
