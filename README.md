@@ -1,6 +1,6 @@
-# Project 4: Around The U.S. ---> stage 7 
+# Project 4: Around The U.S. ---> sprint 8 
 
-* xProject 8: OOP Refactoring, more classes, and Webpack Bundling
+* Project 8: OOP Refactoring, more classes, and Webpack Bundling
 * Project 7: OOP and Modular JS, Card and FormValidator classes/objects
 * Project 6: Real time, client-side form validation
 * Project 5: JS functions to add, load, like, delete, and open full image on all cards
@@ -13,7 +13,7 @@ Project created with the following technologies
 * Figma
 * HTML
 * CSS
-* Javascript
+* Javascript 
 
 **Figma**
 
